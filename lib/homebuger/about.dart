@@ -1,64 +1,93 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
-class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
+class AboutAura extends StatelessWidget {
+  const AboutAura({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('About App'),
-        backgroundColor: const Color(0xFF1a1a2e), // Dark background for theme consistency
-        foregroundColor: Colors.white,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 50),
-              const Icon(Icons.info_outline, size: 60, color: Colors.lightBlueAccent),
-              const SizedBox(height: 20),
-              Text(
-                'Application Name',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+    return SingleChildScrollView(   // ⭐ Entire page scrollable
+      padding: const EdgeInsets.all(20),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  const Color.fromARGB(255, 146, 205, 213).withOpacity(0.15),
+                  const Color.fromARGB(255, 182, 250, 255).withOpacity(0.05),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-              const SizedBox(height: 8),
-              Text(
-                'Version 1.0.0',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white54,
-                ),
+              borderRadius: BorderRadius.circular(25),
+              border: Border.all(
+                color: Colors.white.withOpacity(0.2),
               ),
-              const SizedBox(height: 30),
-              Text(
-                'This application is designed to process various data formats (JSON, TEXT, CSV) and generate meaningful output based on the input provided.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white70,
+            ),
+
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "About the Application — AI-Powered Customer Review Insights Engine (Aura)",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 8, 3, 3),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 40),
-              Text(
-                '© 2025 Your Company/Project Name',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.white38,
+
+                SizedBox(height: 12),
+
+                Text(
+                  "Aura is a web-based intelligence system designed to help product teams make sense of massive volumes of customer reviews. Instead of relying only on star ratings, Aura digs deeper to uncover why customers feel the way they do.",
+                  style: TextStyle(color: Color.fromARGB(179, 9, 6, 6), height: 1.5),
                 ),
-              ),
-            ],
+
+                SizedBox(height: 12),
+
+                Text(
+                  "The application ingests review datasets and uses Aspect-Based Sentiment Analysis (ABSA) to understand which specific product features—such as battery, camera, performance, pricing, delivery, or customer service—customers are talking about and the sentiment associated with each aspect.",
+                  style: TextStyle(color: Color.fromARGB(179, 3, 2, 2), height: 1.5),
+                ),
+
+                SizedBox(height: 12),
+
+                Text(
+                  "The system automatically extracts aspects from raw review text and classifies the sentiment for each one as Positive, Negative, or Neutral. This transforms unstructured customer feedback into structured, actionable insights.",
+                  style: TextStyle(color: Color.fromARGB(179, 8, 4, 4), height: 1.5),
+                ),
+
+                SizedBox(height: 12),
+
+                Text(
+                  "The web dashboard allows teams to upload review files, view the top praised and criticized features, and filter reviews by specific aspects to understand user pain points or strengths at a glance.",
+                  style: TextStyle(color: Color.fromARGB(179, 20, 12, 12), height: 1.5),
+                ),
+
+                SizedBox(height: 12),
+
+                Text(
+                  "Aura enables product managers and decision-makers to identify hidden patterns in customer feedback, prioritize feature improvements, and track the real-world performance of their products—without manually reading thousands of reviews.",
+                  style: TextStyle(color: Color.fromARGB(179, 20, 12, 12), height: 1.5),
+                ),
+
+                SizedBox(height: 12),
+
+                Text(
+                  "It delivers an end-to-end workflow: data input, intelligent analysis, and a clear visual summary that turns customer voices into meaningful product insights.",
+                  style: TextStyle(color: Color.fromARGB(179, 8, 4, 4), height: 1.5),
+                ),
+              ],
+            ),
           ),
         ),
       ),
-      backgroundColor: const Color(0xFF1a1a2e), // Match the dark theme
     );
   }
 }
