@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env
+
+# ML Models (large files)
+*.bin
+*.pt
+*.h5
+models/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

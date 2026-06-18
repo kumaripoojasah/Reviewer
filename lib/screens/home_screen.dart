@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
 
       // 2. Define your backend URL
       // ❗ (See "IMPORTANT" note below this code)
-      final url = Uri.parse('http://127.0.0.1:8080/analyze');
+      final url = Uri.parse('http://127.0.0.1:5001/analyze');
 
       // 3. Create a "multipart" request (for sending files)
       var request = http.MultipartRequest('POST', url);
